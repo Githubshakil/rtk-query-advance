@@ -1,0 +1,74 @@
+{
+  "users": [
+  {
+    "id": 1,
+    "name": "Alice Johnson",
+    "email": "alice.johnson@example.com",
+    "age": 28,
+    "country": "USA"
+  },
+  {
+    "id": 2,
+    "name": "Rahul Sharma",
+    "email": "rahul.sharma@example.com",
+    "age": 32,
+    "country": "India"
+  },
+  {
+    "id": 3,
+    "name": "Maria Gonzalez",
+    "email": "maria.gonzalez@example.com",
+    "age": 25,
+    "country": "Spain"
+  },
+  {
+    "id": 4,
+    "name": "David Brown",
+    "email": "david.brown@example.com",
+    "age": 41,
+    "country": "Canada"
+  },
+  {
+    "id": 5,
+    "name": "Liu Wei",
+    "email": "liu.wei@example.com",
+    "age": 29,
+    "country": "China"
+  },
+  {
+    "id": 6,
+    "name": "Fatima Al-Sayed",
+    "email": "fatima.sayed@example.com",
+    "age": 34,
+    "country": "UAE"
+  },
+  {
+    "id": 7,
+    "name": "James Smith",
+    "email": "james.smith@example.com",
+    "age": 30,
+    "country": "UK"
+  },
+  {
+    "id": 8,
+    "name": "Sophia Rossi",
+    "email": "sophia.rossi@example.com",
+    "age": 27,
+    "country": "Italy"
+  },
+  {
+    "id": 9,
+    "name": "Hiroshi Tanaka",
+    "email": "hiroshi.tanaka@example.com",
+    "age": 36,
+    "country": "Japan"
+  },
+  {
+    "id": 10,
+    "name": "Emma Müller",
+    "email": "emma.muller@example.com",
+    "age": 31,
+    "country": "Germany"
+  }
+]
+}
