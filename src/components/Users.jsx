@@ -1,15 +1,28 @@
 import React, { use } from 'react'
-import { useGetUsersQuery } from '../redux/features/users/userApi'
+import { useDeleteUserMutation, useGetUsersQuery } from '../redux/features/users/userApi'
 import Loader from './Loader'
 
 
 const Users = () => {
 
   const {data:users=[], error, isLoading} = useGetUsersQuery()
+  const [deleteUser] = useDeleteUserMutation()
 
   if(isLoading) return <Loader/>
   if(error) return <div>Error Page</div>
-console.log(users)
+
+
+
+const handleDeleteUser =async(id) => {
+  try {
+    await deleteUser(id)
+    alert ('user deleting successfuly')
+  } catch (error) {
+    console.log("Error Deleteing User", error)
+  }
+ 
+}
+
   return (
     <div>
        
@@ -23,6 +36,11 @@ console.log(users)
             <h4><span className='font-semibold'>Email:</span>  {user?.email}</h4>
             <h4><span className='font-bold'>Age:</span>  {user?.age}</h4>
             <h5><span className='font-bold'>Country:</span>  {user?.country}</h5>
+
+            <div className='space-x-2'>
+              <button onClick={()=> handleDeleteUser(user?.id)} className='px-5 py-1.5 bg-red-500 text-white rounded'>Delete</button>
+              <button className='px-5 py-1.5 bg-blue-500 text-white rounded'>Update</button>
+            </div>
 
           </div>
         ))
