@@ -8,6 +8,10 @@ const AddNewUser = () => {
 
         <form className='space-y-4'>
             <div>
+                <label>id:</label>
+                <input type="number" placeholder='Id no.' className=' p-2 border focus:outline-none ml-3 border-gray-200 rounded-lg' />
+            </div>
+            <div>
                 <label>Name:</label>
                 <input type="text" placeholder='Enter Your Name' className=' p-2 border focus:outline-none ml-3 border-gray-200 rounded-lg' />
             </div>
