@@ -13,7 +13,7 @@ const userApi = createApi({
             getUsers: builder.query({
                 query: ({page,limit}) => `/users?_page=${page}&_per_page=${limit}`,
                 // providesTags:['Users']
-                providesTags: ['Users']
+                providesTags: (result) => result ? result?.data.map(({id})=>({type: 'Users' , id})): ['Users']
             }),
 
             //get single user Details
