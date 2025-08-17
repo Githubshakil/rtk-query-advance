@@ -1,6 +1,7 @@
 import React, { use } from 'react'
 import { useDeleteUserMutation, useGetUsersQuery } from '../redux/features/users/userApi'
 import Loader from './Loader'
+import { Link } from 'react-router'
 
 
 const Users = () => {
@@ -39,7 +40,9 @@ const handleDeleteUser =async(id) => {
 
             <div className='space-x-2'>
               <button onClick={()=> handleDeleteUser(user?.id)} className='px-5 py-1.5 bg-red-500 text-white rounded'>Delete</button>
+              <Link to={`/edit-user/${user?.id}`}>
               <button className='px-5 py-1.5 bg-blue-500 text-white rounded'>Update</button>
+              </Link>
             </div>
 
           </div>

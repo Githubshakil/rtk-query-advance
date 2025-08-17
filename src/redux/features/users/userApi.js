@@ -16,6 +16,10 @@ const userApi = createApi({
                 providesTags: (result) => result ? result.map(({id})=>({type: 'Users' , id})): ['Users']
             }),
 
+            //get single user Details
+            getUserById : builder.query({
+                query: (id) => `/users/${id}`
+            }),
             // add a new user to api
             addUser: builder.mutation({
                 query: (data)=>({
@@ -34,8 +38,20 @@ const userApi = createApi({
                 }),
                 // invalidatesTags:['Users']
                 invalidatesTags:(result,error, userId)=>[{type: 'Users', id: userId}]
+            }),
+
+            //Update a user
+
+            updateUserById: builder.mutation({
+                 query: ({id, ...rest})=>({
+                    url:`/users/${id}`,
+                    method:'PATCH',
+                    body: rest
+                }),
+                // invalidatesTags:['Users']
+                invalidatesTags:(result,error, {userId})=>[{type: 'Users', id: userId}]
             })
     })
 })
-export const {useGetUsersQuery, useAddUserMutation,useDeleteUserMutation} = userApi
+export const {useGetUsersQuery, useAddUserMutation,useDeleteUserMutation,useGetUserByIdQuery,useUpdateUserByIdMutation} = userApi
 export default userApi
