@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import {
   useDeleteUserMutation,
   useGetUsersQuery,
@@ -7,10 +7,12 @@ import Loader from "./Loader";
 import { Link } from "react-router";
 
 const Users = () => {
-  const { data: users = [], error, isLoading } = useGetUsersQuery(undefined,{
-    pollingInterval: 5000
+  const [page, setPage] = useState(1)
+  const { data: users = {}, error, isLoading } = useGetUsersQuery({page,limit:5
+    // pollingInterval: 5000
   });
   const [deleteUser] = useDeleteUserMutation();
+  console.log(users.data)
 
   if (isLoading) return <Loader />;
   if (error) return <div>Error Page</div>;
@@ -27,7 +29,7 @@ const Users = () => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-        {users.map((user, idx) => (
+        {users?.data.map((user, idx) => (
           <div key={idx} className=" shadow-md rounded-lg p-5 space-y-2">
             <img
               src="https://img.freepik.com/premium-vector/male-face-avatar-icon-set-flat-design-social-media-profiles_1281173-3806.jpg"
@@ -62,6 +64,12 @@ const Users = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-8 flex items-center justify-center gap-4">
+        <button onClick={() => setPage(prev => Math.max(prev - 1, 1))} className="py-1 px-4 bg-red-400 text-white">Previous</button>
+        {page}
+        <button  onClick={() => setPage(prev => Math.max(prev + 1))} className="py-1 px-4 bg-red-400 text-white">Next</button>
       </div>
     </div>
   );
