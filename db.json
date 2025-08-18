@@ -36,17 +36,10 @@
       "country": "UK"
     },
     {
-      "id": "8",
-      "name": "Sophia Rossi",
-      "email": "sophia.rossi@example.com",
-      "age": 27,
-      "country": "Italy"
-    },
-    {
       "id": "111",
       "name": "Md Shakil Mahmud",
       "email": "shakilmahmud007@gmail.com",
-      "age": "28",
+      "age": "34",
       "country": "Bangladesh"
     }
   ]
